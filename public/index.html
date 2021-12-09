@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>main page</title>
+  <link rel="stylesheet" href="master.css">
+
+  <script defer src="/__/firebase/9.6.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.6.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/9.6.0/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/9.6.0/firebase-storage.js"></script>
+
+
+</head>
+
+<body>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
+      authDomain: "dscover-3d912.firebaseapp.com",
+      projectId: "dscover-3d912",
+      storageBucket: "dscover-3d912.appspot.com",
+      messagingSenderId: "722420553295",
+      appId: "1:722420553295:web:ce829a7660c4d1be157c3a",
+      measurementId: "${config.measurementId}"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <!-- Header Start -->
+  <header class="header">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="brand-name">
+          <a href="index.html">DScover</a>
+          <img src="img/icons/cube.png" alt="">
+        </div>
+        <div class="nav-toggle">
+          <span></span>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="">Notice</a></li>
+            <li><a href="">Board</a></li>
+            <li><a href="#contact">Recruit</a></li>
+            <li class="manage"><a href="">Manage</a></li>
+            <button type="button" name="button">Log in</button>
+            <button type="button" name="button">Sign up</button>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- Header End -->
+  <!-- Home Section Start -->
+  <section class="home-section" id="home">
+    <!-- shape -->
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="home-content">
+          <img src="./img/logo4.png" alt="">
+          <h4>SungKyunKwan Univ.</h4>
+          <h1>Data Science Academy</h1>
+        </div>
+      </div>
+    </div>
+    <!-- scroll down -->
+    <a href="#about" class="scroll-down">
+      <img src="img/icons/arrow-down.png" alt="scroll Down">
+    </a>
+  </section>
+  <!-- Home Section End -->
+  <!-- About Section Start -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-content">
+          <div class="row">
+            <div class="section-title">
+              <h1>About Us</h1>
+            </div>
+          </div>
+          <div class="contents">
+            <div class="career">
+              <ul>
+                <li>something blabla</li>
+                <li>contest fasdfsdf</li>
+                <li>development sfadfsadf</li>
+                <li>seminar sdfadfasd</li>
+                <li>study asdfadfasdfas</li>
+              </ul>
+            </div>
+            <div class="about-img">
+              <div class="img-box">
+                <img src="img/about.jpg" alt="about me">
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis
+                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section End -->
+
+  <!-- Work Section Start -->
+  <section class="work-section" id="works">
+    <div class="container">
+      <div class="row">
+        <div class="section-title">
+          <h1>Projects</h1>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="slideshow-container">
+          <div class="work-item"><img src="img/works/thumb/1.png" alt=""></div>
+          <div class="work-item"><img src="img/works/thumb/2.png" alt=""></div>
+          <div class="work-item"><img src="img/works/thumb/3.png" alt=""></div>
+          <div class="work-item"><img src="img/works/thumb/4.png" alt=""></div>
+          <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a href="https://github.com/DScover" target="_blank"><button type="button" name="button">More</button></a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- Work Section End -->
+
+  <!-- Contact Section Start -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="join-us">
+        <h1>Join Us!</h1>
+        <h3>15 December 2021 ~ 15 January 2022</h3>
+        <a href="#"> <button type="button" name="button">Apply</button> </a>
+      </div>
+      <div class="row">
+        <div class="contact-info">
+          <div class="row">
+            <!-- info item start -->
+            <div class="info-item">
+              <h5>Email</h5>
+              <p>yourmail@gmail.com</p>
+            </div>
+            <div class="info-item">
+              <h5>President Email</h5>
+              <p>yourmail@gmail.com</p>
+            </div>
+            <div class="info-item">
+              <h5>Vice President Email</h5>
+              <p>yourmail@gmail.com</p>
+            </div>
+            <!-- info item end -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="social-links">
+          <a href="https://github.com/DScover" title="linkedin"><img src="img/icons/GitHub-Mark-120px-plus.png" alt="github"></a>
+          <a href="https://www.instagram.com/dscover_skku/?hl=ko" title="instagram"><img src="img/icons/instagram.png" alt="instagram"></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Contact Section End -->
+
+  <!-- copyright text -->
+  <p class="copyright">&copy; 2021 SKKU DScover. All right reserved</p>
+
+  <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
