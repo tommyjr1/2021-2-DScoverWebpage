@@ -5,10 +5,7 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <form class="" action="validate_signup.jsp" method="post">
-
-
-		<table>
+    <table>
 		  <tr>
 		    <td>Name</td>
 		    <td>  <input type="text" name="username" value=""> </td>
@@ -19,25 +16,32 @@
 		  </tr>
 		  <tr>
 		    <td>ID</td>
-		    <td>  <input type="text" name="userid" value=""> </td>
+		    <td>  <input type="email" id="email" value=""> </td>
 		  </tr>
 		  <tr>
 		    <td>Password</td>
-		    <td> <input type="password" name="password" value=""> </td>
+		    <td> <input type="password" id="password" value=""> </td>
 		  </tr>
 		  <!-- <tr>
 		    <td>Email</td>
 		    <td> <input type="email" name="details" value=""> </td>
 		  </tr> -->
 		  <tr>
-		    <td><button type="submit" name="loginbutton">Sign up</button></td>
+		    <td><button id="signbutton">Sign up</button></td>
 		    <td><button type="reset" name="loginbutton">Clear</button></td>
 		  </tr>
-		
+
 		</table>
-		</form>
-	
-    
-    
+
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+    <script src="/__/firebase/8.6.5/firebase-app.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
+
+
+    <script src="/db/dbconnect.js"></script>
   </body>
+
 </html>
