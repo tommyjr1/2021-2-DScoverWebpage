@@ -2,27 +2,36 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Sign Up</title>
   </head>
   <body>
     <table>
+		  
 		  <tr>
-		    <td>User ID</td>
-		    <td>  <input type="file" name="userid" value="" > </td>
+		    <td>E-Mail</td>
+		    <td>  <input type="email" id="email" value=""> </td>
 		  </tr>
-		  <%-- <tr>
-		    <td>Password</td>
-		    <td> <input type="password" name="password" value=""> </td>
-		  </tr> --%>
 		  <tr>
-		    <td><button type="submit" name="loginbutton">Login</button></td>
+		    <td>Password</td>
+		    <td> <input type="password" id="password" value=""> </td>
+		  </tr>
+
+		  <tr>
+		    <td><button id="loginbutton">Login</button></td>
 		  </tr>
 
 		</table>
 
-	<a href="signup.jsp" class="btn">Register</a>
+    <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
+
+    <script src="/__/firebase/8.6.5/firebase-app.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
 
 
-
+    <script src="/server/login_server.js"></script>
   </body>
+
 </html>
+

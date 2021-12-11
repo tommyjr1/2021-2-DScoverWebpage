@@ -30,57 +30,29 @@
 			  </div>
 			</div>
 		  	
-		  	
 		 
 		  </div>
 		  <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 		  	my profile
 		  	
-		  	<%@ page import ="java.sql.*" %>
-			<% String userName="";String userStudentid="";String userPassword="";
-	    	String userid = "test2";    
-			try{
-			    	
-/* 			        String userid = request.getParameter("userid");
- */			/*         String details = request.getParameter("details");
-			 */        Class.forName("com.mysql.cj.jdbc.Driver");  // MySQL database connection
-			        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dscoverdb?" + "user=root&password=Jewelmysql");
-			        PreparedStatement pst = conn.prepareStatement("SELECT * FROM users WHERE userid=?");
-			        pst.setString(1, userid);
-			       
-			        ResultSet rs = pst.executeQuery();
-			        
-			        if(rs.next()){           
-				        userName = rs.getString("username");
-				        userStudentid = rs.getString("studentid");
-				        userPassword = rs.getString("password");
-			        }
-				    else
-			        	userName = ""; 
-			    }
-			   catch(Exception e){       
-			       out.println("Something went wrong !! Please try again");       
-			   }      
-			%>
-			<form action="edit_profile.jsp" method="post">
-		  		<table>
-		  			<tr>
-		  				<td>Name</td>
-		  				<td> <input type="text" name="username" value="<%=userName %>"> </td>
-		  			</tr>
-		  			<tr>
-					    <td>Student ID</td>
-					    <td> <input type="text" name="studentid" value="<%=userStudentid %>"> </td>
-				    </tr>
-				    <tr>
-					    <td>Password</td>
-					    <td> <input type="password" name="password" value="<%=userPassword %>"> </td>
-				    </tr>
-				    <tr>
-				    	<td><button type="submit" name="editprofile">Save</button></td>
-				    </tr>
-		  		</table>
-		  	</form>
+			<table>
+				<tr>
+					<td>Name</td>
+					<td> <input type="text" name="username" value="<%=userName %>"> </td>
+				</tr>
+				<tr>
+					<td>Student ID</td>
+					<td> <input type="text" name="studentid" value="<%=userStudentid %>"> </td>
+			  	</tr>
+			  	<tr>
+				  <td>Password</td>
+				  <td> <input type="password" name="password" value="<%=userPassword %>"> </td>
+			  	</tr>
+			  	<tr>
+					<td><button type="submit" name="editprofile">Save</button></td>
+			  	</tr>
+			</table>
+
 		  </div>
 		  <!--  --><div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
 		</div>
@@ -91,8 +63,14 @@
 
 	
     
-    
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  
+	<script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
+
+	<script src="/__/firebase/8.6.5/firebase-app.js"></script>
+	<script src="/__/firebase/8.6.5/firebase-auth.js"></script>
+	<script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
+	<script src="/__/firebase/8.6.5/firebase-storage.js"></script> 
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	</body>  
 </html>

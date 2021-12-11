@@ -12,6 +12,39 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const db = firebase.firestore();
+const storage = firebase.storage()
+
+//signup
+$("#signbutton").click(function(){
+  var email = $("#email").val()
+  var password = $("#password").val()
+  var username = $("#username").val()
+  var studentid = $("#studentid").val()
+
+
+  firebase.auth().createUserWithEmailAndPassword( email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    db.collection('users').add({email: email, password:password, username :username, studentid: studentid})
+    user.updateProfile({
+      displayName: username
+    }).then(()=>{
+      console.log(user)
+      location.href='../index.html'
+    })
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage)
+  });
+})
+
+
+
+
 db.collection('feeds').get().then((result)=>{
   result.forEach((doc)=>{
     console.log(doc.data())
@@ -22,7 +55,6 @@ db.collection('feeds').get().then((result)=>{
 // db.collection('users').add({userid: userid, password:password })
 
 
-const storage = firebase.storage()
 
 $("#send").click(function(){
   var file= document.querySelector("#image").files[0]
@@ -46,19 +78,4 @@ $("#send").click(function(){
   )
 })
 
-$("#signbutton").click(function(){
-  var email = $("#email").val()
-  var password = $("#password").val()
 
-  firebase.auth().createUserWithEmailAndPassword( email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    console.log(user)
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage)
-  });
-})
