@@ -560,7 +560,8 @@ body {
 }
 
 /*board section*/
-.board-section .container {
+.board-section .container,
+.my-section .container {
   margin-top: 100px;
 }
 
@@ -598,20 +599,12 @@ body {
   text-align: inherit;
 }
 
-.list-group-item.active {
-  z-index: 2;
-  color: white;
-  background-color: yellow;
-  border-color: yellow;
-}
-
 .list-group-item: first-child {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
 .list-group-item:nth-child(even) {
-  /* background-color: #8eade9; */
   background-color: rgba(142,173,233,0.8);
 
 }
@@ -629,4 +622,32 @@ body {
 .d-flex {
   display: flex;
   justify-content: space-between;
+}
+
+/* mypage section */
+.nav-link{
+  display: block;
+  padding: 0.5rem 1rem;
+  color: red;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+[type=button],
+[type=reset],
+[type=submit],
+button{
+  -webkit-appearance: button;
+}
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled){
+  cursor: pointer;
+}
+.nav-tabs .nav-link{
+  margin-top: -1px;
+  background: 0 0;
+  border-radius: 1px solid blue;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
