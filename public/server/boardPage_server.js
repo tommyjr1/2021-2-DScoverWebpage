@@ -139,7 +139,7 @@ firebase.auth().onAuthStateChanged((user) => {
                         })
                     })
             }else{
-                db.collection('feeds').add({title: title, context:context, last_update: now, writer:name})
+                db.collection('feeds').doc(title).set({title: title, context:context, last_update: now, writer:name})
             }
         })
         

@@ -14,32 +14,4 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const storage = firebase.storage()
 
-//signup
-$("#signbutton").click(function(){
-  var email = $("#email").val()
-  var password = $("#password").val()
-  var username = $("#username").val()
-  var studentid = $("#studentid").val()
-
-
-  firebase.auth().createUserWithEmailAndPassword( email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    db.collection('users').doc(username).set({email: email, password:password, username :username, studentid: studentid})
-    user.updateProfile({
-      displayName: username
-    }).then(()=>{
-      console.log(user)
-      location.href='../index.html'
-    })
-
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage)
-  });
-})
-
 
