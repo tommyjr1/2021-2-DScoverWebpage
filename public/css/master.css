@@ -29,6 +29,11 @@ body {
   flex-wrap: wrap;
 }
 
+.row>*{
+  width: auto;
+  max-width: none;
+}
+
 .align-items-center {
   align-items: center;
 }
@@ -211,6 +216,7 @@ body {
   font-family: 'Outfit', sans-serif;
   width: 90px;
   font-weight: 500;
+  line-height: normal;
 }
 
 .header.fixed .nav button:hover,
@@ -404,7 +410,8 @@ body {
 }
 
 .active {
-  background-color: #717171;
+  /* background-color: #717171; */
+  background-color: none;
 }
 
 /* contact section */
@@ -497,7 +504,7 @@ body {
 .xBtn {
   float: right;
   border: 0px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
   color: grey;
   font-size: 1.17em;
   border-radius: 10px;
@@ -548,14 +555,16 @@ body {
   border-color: #7d94c0;
 }
 
-.modal-header {
+.login-section .modal-header,
+.signup-section .modal-header {
   font-size: 20px;
   margin-bottom: 10px;
   font-weight: bold;
   color: #7d94c0;
 }
 
-.modal-contents div {
+.login-section .modal-contents div,
+.signup-section .modal-contents div {
   margin-top: 10px;
 }
 
@@ -583,11 +592,14 @@ body {
   position: relative;
   display: block;
   padding: 1.5rem 2rem;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.7);
   margin: 10px;
   border-radius: 10px;
   text-decoration: none;
   color: black;
+}
+.board-section .list-group-item:hover{
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .list-group-item+.list-group-item {
@@ -605,8 +617,10 @@ body {
 }
 
 .list-group-item:nth-child(even) {
-  background-color: rgba(142,173,233,0.8);
-
+  background-color: rgba(142,173,233,0.7);
+}
+.list-group-item:nth-child(even):hover {
+  background-color: rgba(142,173,233,1);
 }
 
 .list-group h5 {
@@ -625,29 +639,24 @@ body {
 }
 
 /* mypage section */
-.nav-link{
-  display: block;
-  padding: 0.5rem 1rem;
-  color: red;
-  text-decoration: none;
-  transition: all 0.5s ease;
+.my-section #nav-home{
+  /* to test nav bar */
+  height: 1500px;
 }
-[type=button],
-[type=reset],
-[type=submit],
-button{
-  -webkit-appearance: button;
+.my-section .nav-link{
+  color: grey;
 }
-[type=button]:not(:disabled),
-[type=reset]:not(:disabled),
-[type=submit]:not(:disabled),
-button:not(:disabled){
-  cursor: pointer;
+.nav-tabs .nav-link.active{
+  color: black;
 }
-.nav-tabs .nav-link{
-  margin-top: -1px;
-  background: 0 0;
-  border-radius: 1px solid blue;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+.my-section h1{
+  padding: 20px 5px;
+}
+.my-section .card-header{
+  font-size: 22.5px;
+}
+.card-title{
+  font-size: 20px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

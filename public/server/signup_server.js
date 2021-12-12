@@ -26,7 +26,7 @@ $("#signbutton").click(function(){
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
-    db.collection('users').add({email: email, password:password, username :username, studentid: studentid})
+    db.collection('users').doc(username).set({email: email, password:password, username :username, studentid: studentid})
     user.updateProfile({
       displayName: username
     }).then(()=>{
@@ -40,42 +40,6 @@ $("#signbutton").click(function(){
     const errorMessage = error.message;
     console.log(errorMessage)
   });
-})
-
-
-
-
-db.collection('feeds').get().then((result)=>{
-  result.forEach((doc)=>{
-    console.log(doc.data())
-  })
-})
-// var userid = 'test2'
-// var password='test2'
-// db.collection('users').add({userid: userid, password:password })
-
-
-
-$("#send").click(function(){
-  var file= document.querySelector("#image").files[0]
-  var storageRef = storage.ref()
-  var saveLoc = storageRef.child('image/'+file.name)
-  var upload = saveLoc.put(file)
-
-  upload.on('state_changed',
-    //변화 시 동작
-    null,
-    //에러시 동작
-    (error)=>{
-      console.error=('reason', error)
-    },
-    //성공 시
-    ()=>{
-      upload.snapshot.ref.getDownloadURL().then((url)=>{
-        console.log('업로드된 경로는', url)
-      })
-    }
-  )
 })
 
 
