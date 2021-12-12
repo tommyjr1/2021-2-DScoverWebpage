@@ -61,7 +61,6 @@ db.collection('feeds').get().then((results)=>{
     });
     var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
     triggerTabList.forEach(function (triggerEl) {
-        var tabTrigger = new bootstrap.Tab(triggerEl)
         console.log(triggerEl.querySelector("div h5").innerText)
         triggerEl.addEventListener('click', function (event) {
             event.preventDefault()
