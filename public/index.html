@@ -24,13 +24,14 @@
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About us</a></li>
-            <li><a href="myPage.html">Notice</a></li>
-            <!-- 지금 마이페이지 여기에 연결함 -->
+            <li><a href="managerPage.html">Notice</a></li>
             <li><a href="boardPage.html">Board</a></li>
             <li><a href="#contact">Recruit</a></li>
             <li class="manage"><a href="">Manage</a></li>
             <button type="button" name="button" id="login">Log in</button>
             <button type="button" name="button" id="signup">Sign up</button>
+            <button type="button" name="button" id="mypage">Mypage</button>
+            <button type="button" name="button" id="logout">Log out</button>
           </ul>
         </nav>
       </div>
@@ -49,18 +50,18 @@
         Login
       </div>
       <div class="modal-contents">
-        <form class="modal-form" action="index.html" method="post">
+        <div class="modal-form">
           <div>
             <p>E-mail</p>
-            <input class="email" id="email" type="email" name="" value="" placeholder="E-mail">
+            <input class="email" id="loginemail" type="email" name="" value="" placeholder="E-mail">
           </div>
           <div>
             <p>Password</p>
-            <input class="password" id="password" type="password" name="" value="" placeholder="Password">
+            <input class="password" id="loginpassword" type="password" name="" value="" placeholder="Password">
           </div>
-          <button class="loginSectionBtn" id="loginbutton" type="button" name="button">Login</button>
+          <button class="loginSectionBtn" id="loginbutton" type="button">Login</button>
 
-        </form>
+        </div>
 
       </div>
     </section>
@@ -74,7 +75,7 @@
         Sign Up
       </div>
       <div class="modal-contents">
-        <form class="modal-form" action="index.html" method="post">
+        <div class="modal-form">
           <div>
             <p>Name</p>
             <input class="username" id="username" type="text" name="" value="" placeholder="Name">
@@ -91,8 +92,8 @@
             <p>Password</p>
             <input class="password" id="password" type="password" name="" value="" placeholder="Password">
           </div>
-          <button class="signupSectionBtn" id="signbutton" type="button" name="button">Sign up</button>
-        </form>
+          <button class="signupSectionBtn" id="signbutton" type="button">Sign up</button>
+        </div>
 
       </div>
     </section>
@@ -229,16 +230,14 @@
   <p class="copyright">&copy; 2021 SKKU DScover. All right reserved.</p>
 
   <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="server/mainPage_script.js"></script>
 
   <script src="/__/firebase/8.6.5/firebase-app.js"></script>
   <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
   <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
   <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
-
+  <script type="text/javascript" src="server/mainPage_script.js"></script>
   <script src="/server/mainPage_server.js"></script>
-  <script src="/server/login_server.js"></script>
-  <script src="/server/signup_server.js"></script>
+
 </body>
 
 </html>

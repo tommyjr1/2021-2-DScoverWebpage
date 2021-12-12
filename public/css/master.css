@@ -579,10 +579,9 @@ body {
 }
 
 .board-section #addPost {
-  /* background-color: 뭐로하지 */
   border-radius: 5px;
-  width: 100px;
-  height: 30px;
+  width: 120px;
+  height: 40px;
 }
 .board-section #addPost:hover{
   background: lightgrey;
@@ -659,4 +658,42 @@ body {
   font-size: 20px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+/*post section*/
+.post-section {
+  background-color: #7d94c0;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+.post-section .modal-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+.post-section .xBtn{
+  color: white;
+}
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active{
+  background: none;
+  border: solid 2px white;
+  color: white;
+  border-radius: 5px;
+  box-shadow: none;
+}
+.btn-primary:hover{
+  background: none;
+  border-color: grey;
+  color: grey;
+}
+#postBtn{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }

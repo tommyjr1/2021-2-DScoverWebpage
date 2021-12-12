@@ -15,21 +15,3 @@ const firebaseConfig = {
   const storage = firebase.storage()
 
   
-//login
-$("#loginbutton").click(function(){
-    var email = $("#email").val()
-    var password = $("#password").val()
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        location.href='../index.html'
-
-    })
-    .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        //TODO: Try Again 말하는 알림창
-    });
-})

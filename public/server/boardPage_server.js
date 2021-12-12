@@ -96,15 +96,6 @@ if(patId!=null){
 }
 
 
-
-
-
-
-$("#addPost").click(()=>{
-    location.href = 'addPost.html'
-})
-
-
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
@@ -139,10 +130,11 @@ firebase.auth().onAuthStateChanged((user) => {
                         })
                     })
             }else{
-                db.collection('feeds').add({title: title, context:context, last_update: now, writer:name})
+                db.collection('feeds').doc(title).set({title: title, context:context, last_update: now, writer:name})
             }
 
             // window.history.back();
+            // window.location.reload();
         })
 
     } else {
