@@ -26,7 +26,7 @@ $("#signbutton").click(function(){
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
-    db.collection('users').add({email: email, password:password, username :username, studentid: studentid})
+    db.collection('users').doc(username).set({email: email, password:password, username :username, studentid: studentid})
     user.updateProfile({
       displayName: username
     }).then(()=>{

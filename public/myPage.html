@@ -11,49 +11,61 @@
   	<div class='wrapper'>
 	  	<nav>
 		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-		    <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">History</button>
-		    <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+		    <button class="nav-link active" id="nav-card-tab" data-bs-toggle="tab" data-bs-target="#nav-card" type="button" role="tab" aria-controls="nav-card" aria-selected="true">History</button>
+		    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
 	<!-- 	    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contacst</button>
-	 -->	  </div>
+	 --></div>
 		</nav>
 		
 		<div class="tab-content" id="nav-tabContent">
-		  <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-		  	my content
-		  	<div class="card" style="width: 18rem;">
-			  <div class="card-body">
-			    <h5 class="card-title">Card title</h5>
-			    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    <a href="#" class="card-link">Card link</a>
-			    <a href="#" class="card-link">Another link</a>
-			  </div>
+		  <div class="tab-pane fade show active" id="nav-card" role="tabpanel" aria-labelledby="nav-card-tab">
+				<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Date</h6>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<a href="#" class="card-link">Another link</a>
+				</div>
+				</div>
 			</div>
-		  	
-		 
-		  </div>
-		  <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-		  	my profile
-		  	
-			<table>
-				<tr>
-					<td>Name</td>
-					<td> <input type="text" name="username" value="<%=userName %>"> </td>
-				</tr>
-				<tr>
-					<td>Student ID</td>
-					<td> <input type="text" name="studentid" value="<%=userStudentid %>"> </td>
-			  	</tr>
-			  	<tr>
-				  <td>Password</td>
-				  <td> <input type="password" name="password" value="<%=userPassword %>"> </td>
-			  	</tr>
-			  	<tr>
-					<td><button type="submit" name="editprofile">Save</button></td>
-			  	</tr>
-			</table>
 
-		  </div>
+			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+				<table>
+					<tr>
+						<td>Name</td>
+						<td id="username"> </td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td id="email"> </td>
+					</tr>
+					
+					<tr>
+						<td>Password</td>
+						<td> <input type="password" id="password" value=""> </td>
+					</tr>
+						<tr>
+						<td>Student ID</td>
+						<td> <input type="text" id="studentid" value=""> </td>
+					</tr>
+					<tr>
+						<td>Department</td>
+						<td> <input type="text" id="department" value=""> </td>
+					</tr>
+					<tr>
+						<td>DScover year</td>
+						<td> <input type="integer" id="year" value=""> </td>
+					</tr>
+						<tr>
+						<td>Manager</td>
+						<td id="manager"></td>
+					</tr>
+					<tr>
+						<td><button type="submit" id="editprofile">Save</button></td>
+					</tr>
+				</table>
+
+			</div>
 		  <!--  --><div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
 		</div>
   	
@@ -71,6 +83,6 @@
 	<script src="/__/firebase/8.6.5/firebase-storage.js"></script> 
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+	<script src="/server/mypage_server.js"></script>
 	</body>  
 </html>

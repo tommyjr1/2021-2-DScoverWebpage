@@ -55,12 +55,6 @@ function makeFeed(data){
     }
     
 
-
-// var listContainer = document.querySelector("#myTab")
-// if(listContainer!=null){
-    
-// }
-
 db.collection('feeds').get().then((results)=>{
     results.forEach(docs => {
         makeFeed(docs.data())
