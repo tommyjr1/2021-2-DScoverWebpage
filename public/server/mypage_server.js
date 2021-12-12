@@ -1,3 +1,25 @@
+$(document).ready(function(){
+    // nav toggle
+    $(".nav-toggle").click(function() {
+      $(".header .nav").slideToggle();
+    })
+    $(".header .nav a").click(function() {
+      if ($(window).width() < 768) {
+        $(".header .nav").slideToggle();
+      }
+    })
+  
+    // fixed header
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) {
+        $(".header").addClass("fixed");
+      } else {
+        $(".header").removeClass("fixed");
+      }
+    })
+  })
+  
+
 const firebaseConfig = {
     apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
     authDomain: "dscover-3d912.firebaseapp.com",
@@ -52,6 +74,10 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
+        document.getElementById('board').style.display='inline-block'
+        document.getElementById('manage').style.display='inline-block'
+        document.getElementById('mypage').style.display='inline-block'
+        document.getElementById('logout').style.display='inline-block'
         var uid = user.uid;
         var name = user.displayName
         db.collection('feeds').where('writer','==',name).get().then((results)=>{
@@ -116,6 +142,6 @@ firebase.auth().onAuthStateChanged((user) => {
         
     } else {
         // User is signed out
-        // ...
+        location.href='index.html'
     }
 })

@@ -24,22 +24,22 @@
         </div>
         <nav class="nav">
           <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#about">About us</a></li>
-            <li><a href="myPage.html">Notice</a></li>
-            <!-- 지금 마이페이지 여기에 연결함 -->
-            <li><a href="#">Board</a></li>
-            <li><a href="index.html#contact">Recruit</a></li>
-            <li class="manage"><a href="">Manage</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#works">Projects</a></li>
+            <li id="recruit"><a href="#contact">Recruit</a></li>
+            <li id='board'><a href="boardPage.html">Board</a></li>
+            <li id="manage"><a href="managerPage.html">Manage</a></li>
             <button type="button" name="button" id="login">Log in</button>
             <button type="button" name="button" id="signup">Sign up</button>
+            <button type="button" name="button" id="mypage">Mypage</button>
+            <button type="button" name="button" id="logout">Log out</button>
           </ul>
         </nav>
       </div>
     </div>
   </header>
   <!-- Header End -->
-
   <!-- board section start -->
   <section class="board-section" , id="board">
     <div class="container">
@@ -58,14 +58,14 @@
 
 
   <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="server/boardPage_script.js"></script>
 
 
   <script src="/__/firebase/8.6.5/firebase-app.js"></script>
   <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
   <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
   <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
-
+  
+  <script type="text/javascript" src="server/boardPage_script.js"></script>
   <script src="/server/boardPage_server.js"></script>
 </body>
 

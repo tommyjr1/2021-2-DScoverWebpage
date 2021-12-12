@@ -109,6 +109,25 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
+
+        document.getElementById('board').style.display='inline-block'
+        document.getElementById('manage').style.display='inline-block'
+        document.getElementById('mypage').style.display='inline-block'
+        document.getElementById('logout').style.display='inline-block'
+        $('#mypage').click(()=>{
+            location.href = 'myPage.html'
+        })
+        $('#logout').click(()=>{
+            firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            location.href='index.html'
+
+            }).catch((error) => {
+            // An error happened.
+            });
+        })
+
+
         var uid = user.uid;
         var name = user.displayName;
         console.log(name)
@@ -144,7 +163,6 @@ firebase.auth().onAuthStateChanged((user) => {
         })
         
     } else {
-        // User is signed out
-        // ...
+        location.href='index.html'
     }
 });

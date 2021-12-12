@@ -193,10 +193,6 @@ body {
   color: white;
 }
 
-.header .nav .manage {
-  display: none;
-}
-
 .header.fixed .nav button,
 .header .nav button,
 .work-section .container .contents button,
@@ -221,6 +217,10 @@ body {
   color: white;
   border-color: white;
   font-family: 'Outfit', sans-serif;
+}
+
+.header .nav #recruit, #board, #manage, #login, #signup, #mypage, #logout{
+  display: none;
 }
 
 /* home section */
@@ -492,6 +492,7 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
+  display: none;
 }
 
 .xBtn {
@@ -519,6 +520,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 100;
   border-radius: 5px;
+  display: none;
 }
 
 .login-section input,
