@@ -4,5 +4,5 @@
 1. Install nodejs on your computer
 2. On your terminal, write 
 * npm install -g firebase-tools@9.12.1
-* firebase login (then you ave to login by dscover.skku@gmail.com / Dscover2021
+* firebase login 
 * firebase serve
