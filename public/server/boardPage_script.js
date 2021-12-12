@@ -16,4 +16,13 @@ $(document).ready(function(){
       $(".header").removeClass("fixed");
     }
   })
+
+  //posting Section
+  $('.modal-container').css('display', 'none');
+  $("#addPost").click(function() {
+    $('.modal-container').css('display', 'inline');
+  })
+  $(".xBtn").click(function() {
+    $('.modal-container').css('display', 'none');
+  })
 })

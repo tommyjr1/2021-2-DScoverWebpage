@@ -21,53 +21,53 @@ $(document).ready(function(){
   
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
-    authDomain: "dscover-3d912.firebaseapp.com",
-    projectId: "dscover-3d912",
-    storageBucket: "dscover-3d912.appspot.com",
-    messagingSenderId: "722420553295",
-    appId: "1:722420553295:web:ce829a7660c4d1be157c3a",
-        measurementId: "${config.measurementId}"
+  apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
+  authDomain: "dscover-3d912.firebaseapp.com",
+  projectId: "dscover-3d912",
+  storageBucket: "dscover-3d912.appspot.com",
+  messagingSenderId: "722420553295",
+  appId: "1:722420553295:web:ce829a7660c4d1be157c3a",
+  measurementId: "${config.measurementId}"
 };
-  
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const db = firebase.firestore();
 const storage = firebase.storage()
 
-function myFeed(data){
-    var listContainer = document.querySelector("#nav-card")
-    if(listContainer!= null){
-        var addFeed = document.createElement('div')
-        addFeed.className = 'card'
+function myFeed(data) {
+  var listContainer = document.querySelector("#nav-card")
+  if (listContainer != null) {
+    var addFeed = document.createElement('div')
+    addFeed.className = 'card'
 
-        var cardbody = document.createElement('div')
-        cardbody.className = 'card-body'
+    var cardbody = document.createElement('div')
+    cardbody.className = 'card-body'
 
-        var title = document.createElement('h5')
-        title.className = 'card-title'
-        title.innerText = data['title']
+    var title = document.createElement('h5')
+    title.className = 'card-title'
+    title.innerText = data['title']
 
-        var date = document.createElement('h6')
-        date.className = 'card-subtitle mb-2 text-muted'
-        date.innerText = data['last_update'].toDate().toDateString()
+    var date = document.createElement('h6')
+    date.className = 'card-subtitle mb-2 text-muted'
+    date.innerText = data['last_update'].toDate().toDateString()
 
-        var context = document.createElement('p')
-        context.className = 'card-text'
-        context.innerText = data['context']
-        
-        var link = document.createElement('p')
-        link.className = 'card-link'
-        link.href = data['file']
+    var context = document.createElement('p')
+    context.className = 'card-text'
+    context.innerText = data['context']
 
-        cardbody.appendChild(title)
-        cardbody.appendChild(date)
-        cardbody.appendChild(context)
-        cardbody.appendChild(link)
-        addFeed.appendChild(cardbody)
-        listContainer.appendChild(addFeed)
-    }
+    var link = document.createElement('p')
+    link.className = 'card-link'
+    link.href = data['file']
+
+    cardbody.appendChild(title)
+    cardbody.appendChild(date)
+    cardbody.appendChild(context)
+    cardbody.appendChild(link)
+    addFeed.appendChild(cardbody)
+    listContainer.appendChild(addFeed)
+  }
 }
 
 firebase.auth().onAuthStateChanged((user) => {
