@@ -1,180 +1,244 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
-    <meta charset="utf-8">
-    <title>main page</title>
-    <link rel="stylesheet" href="css/master.css">
+<head>
+  <meta charset="utf-8">
+  <title>main page</title>
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
 
-  </head>
+<body>
+  <!-- Header Start -->
+  <header class="header">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="brand-name">
+          <a href="index.html">DScover</a>
+          <img src="img/icons/cube.png" alt="">
+        </div>
+        <div class="nav-toggle">
+          <span></span>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="myPage.html">Notice</a></li>
+            <!-- 지금 마이페이지 여기에 연결함 -->
+            <li><a href="boardPage.html">Board</a></li>
+            <li><a href="#contact">Recruit</a></li>
+            <li class="manage"><a href="">Manage</a></li>
+            <button type="button" name="button" id="login">Log in</button>
+            <button type="button" name="button" id="signup">Sign up</button>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- Header End -->
 
-  <body>
-    <!-- Header Start -->
-    <!-- test -->
-    <header class="header">
-      <div class="container">
-        <div class="row justify-content-between align-items-center">
-          <div class="brand-name">
-            <a href="index.html">DScover</a>
-            <img src="img/icons/cube.png" alt="">
+  <!-- modal start -->
+  <div class="modal-container">
+    <!-- Login section start-->
+    <section class="login-section" id="login-section">
+      <div class="modal-header">
+        <button class="xBtn" id="close" type="button" name="button">
+          <i class="fa fa-times"></i>
+        </button>
+        Login
+      </div>
+      <div class="modal-contents">
+        <form class="modal-form" action="index.html" method="post">
+          <div>
+            <p>E-mail</p>
+            <input class="email" id="email" type="email" name="" value="" placeholder="E-mail">
           </div>
-          <div class="nav-toggle">
-            <span></span>
+          <div>
+            <p>Password</p>
+            <input class="password" id="password" type="password" name="" value="" placeholder="Password">
           </div>
-          <nav class="nav">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About us</a></li>
-              <li><a href="myPage.html">Notice</a></li>
-              <!-- 지금 마이페이지 여기에 연결함 -->
-              <li><a href="boardPage.html">Board</a></li>
-              <li><a href="#contact">Recruit</a></li>
-              <li class="manage"><a href="">Manage</a></li>
-              <button type="button" name="button" id="login">Log in</button>
-              <button type="button" name="button" id="signup" >Sign up</button>
-            </ul>
-          </nav>
+          <button class="loginSectionBtn" id="loginbutton" type="button" name="button">Login</button>
+
+        </form>
+
+      </div>
+    </section>
+    <!-- Login section end -->
+    <!-- signup section start -->
+    <section class="signup-section" id="signup-section">
+      <div class="modal-header">
+        <button class="xBtn" id="close" type="button" name="button">
+          <i class="fa fa-times"></i>
+        </button>
+        Sign Up
+      </div>
+      <div class="modal-contents">
+        <form class="modal-form" action="index.html" method="post">
+          <div>
+            <p>Name</p>
+            <input class="username" id="username" type="text" name="" value="" placeholder="Name">
+          </div>
+          <div>
+            <p>Student ID</p>
+            <input class="studentid" id="studentid" type="text" name="" value="" placeholder="Student ID">
+          </div>
+          <div>
+            <p>E-mail</p>
+            <input class="email" id="email" type="email" name="" value="" placeholder="Email">
+          </div>
+          <div>
+            <p>Password</p>
+            <input class="password" id="password" type="password" name="" value="" placeholder="Password">
+          </div>
+          <button class="signupSectionBtn" id="signbutton" type="button" name="button">Sign up</button>
+        </form>
+
+      </div>
+    </section>
+    <!-- signup section end -->
+  </div>
+  <!-- modal end -->
+
+  <!-- Home Section Start -->
+  <section class="home-section" id="home">
+    <!-- shape -->
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="home-content">
+          <img src="./img/logo4.png" alt="">
+          <h4>SungKyunKwan Univ.</h4>
+          <h1>Data Science Academy</h1>
         </div>
       </div>
-    </header>
-    <!-- Header End -->
-    <!-- Home Section Start -->
-    <section class="home-section" id="home">
-      <!-- shape -->
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="home-content">
-            <img src="./img/logo4.png" alt="">
-            <h4>SungKyunKwan Univ.</h4>
-            <h1>Data Science Academy</h1>
-          </div>
-        </div>
       <!-- scroll down -->
       <a href="#about" class="scroll-down">
         <img src="img/icons/arrow-down.png" alt="scroll Down">
       </a>
-    </section>
-    <!-- Home Section End -->
-    <!-- About Section Start -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="about-content">
-            <div class="row">
-              <div class="section-title">
-                <h1>About Us</h1>
-              </div>
+  </section>
+  <!-- Home Section End -->
+  <!-- About Section Start -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-content">
+          <div class="row">
+            <div class="section-title">
+              <h1>About Us</h1>
             </div>
-            <div class="contents">
-              <div class="career">
-                <ul>
-                  <li>something blabla</li>
-                  <li>contest fasdfsdf</li>
-                  <li>development sfadfsadf</li>
-                  <li>seminar sdfadfasd</li>
-                  <li>study asdfadfasdfas</li>
-                </ul>
-              </div>
-              <div class="about-img">
-                <div class="img-box">
-                  <img src="img/about.jpg" alt="about me">
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  Duis
-                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              </div>
+          </div>
+          <div class="contents">
+            <div class="career">
+              <ul>
+                <li>something blabla</li>
+                <li>contest fasdfsdf</li>
+                <li>development sfadfsadf</li>
+                <li>seminar sdfadfasd</li>
+                <li>study asdfadfasdfas</li>
+              </ul>
             </div>
+            <div class="about-img">
+              <div class="img-box">
+                <img src="img/about.jpg" alt="about me">
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis
+                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+          </div>
 
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section End -->
+
+  <!-- Work Section Start -->
+  <section class="work-section" id="works">
+    <div class="container">
+      <div class="row">
+        <div class="section-title">
+          <h1>Projects</h1>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="slideshow-container">
+          <div class="work-item"><img src="img/works/thumb/1.png" alt=""></div>
+          <div class="work-item"><img src="img/works/thumb/2.png" alt=""></div>
+          <div class="work-item"><img src="img/works/thumb/3.png" alt=""></div>
+          <div class="work-item"><img src="img/works/thumb/4.png" alt=""></div>
+          <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a href="https://github.com/DScover" target="_blank"><button type="button" name="button">More</button></a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- Work Section End -->
+
+  <!-- Contact Section Start -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="join-us">
+        <h1>Join Us!</h1>
+        <h3>15 December 2021 ~ 15 January 2022</h3>
+        <a href="#"> <button type="button" name="button">Apply</button> </a>
+      </div>
+      <div class="row">
+        <div class="contact-info">
+          <div class="row">
+            <!-- info item start -->
+            <div class="info-item">
+              <h5>Email</h5>
+              <p>yourmail@gmail.com</p>
+            </div>
+            <div class="info-item">
+              <h5>President Email</h5>
+              <p>yourmail@gmail.com</p>
+            </div>
+            <div class="info-item">
+              <h5>Vice President Email</h5>
+              <p>yourmail@gmail.com</p>
+            </div>
+            <!-- info item end -->
           </div>
         </div>
       </div>
-    </section>
-    <!-- About Section End -->
 
-    <!-- Work Section Start -->
-    <section class="work-section" id="works">
-      <div class="container">
-        <div class="row">
-          <div class="section-title">
-            <h1>Projects</h1>
-          </div>
-        </div>
-        <div class="contents">
-          <div class="slideshow-container">
-            <div class="work-item"><img src="img/works/thumb/1.png" alt=""></div>
-            <div class="work-item"><img src="img/works/thumb/2.png" alt=""></div>
-            <div class="work-item"><img src="img/works/thumb/3.png" alt=""></div>
-            <div class="work-item"><img src="img/works/thumb/4.png" alt=""></div>
-            <div class="dots">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-          <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a href="https://github.com/DScover" target="_blank"><button type="button" name="button">More</button></a>
-          </div>
+      <div class="row">
+        <div class="social-links">
+          <a href="https://github.com/DScover" title="linkedin"><img src="img/icons/GitHub-Mark-120px-plus.png" alt="github"></a>
+          <a href="https://www.instagram.com/dscover_skku/?hl=ko" title="instagram"><img src="img/icons/instagram.png" alt="instagram"></a>
         </div>
       </div>
 
-    </section>
-    <!-- Work Section End -->
+    </div>
+  </section>
+  <!-- Contact Section End -->
 
-    <!-- Contact Section Start -->
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="join-us">
-          <h1>Join Us!</h1>
-          <h3>15 December 2021 ~ 15 January 2022</h3>
-          <a href="#"> <button type="button" name="button">Apply</button> </a>
-        </div>
-        <div class="row">
-          <div class="contact-info">
-            <div class="row">
-              <!-- info item start -->
-              <div class="info-item">
-                <h5>Email</h5>
-                <p>yourmail@gmail.com</p>
-              </div>
-              <div class="info-item">
-                <h5>President Email</h5>
-                <p>yourmail@gmail.com</p>
-              </div>
-              <div class="info-item">
-                <h5>Vice President Email</h5>
-                <p>yourmail@gmail.com</p>
-              </div>
-              <!-- info item end -->
-            </div>
-          </div>
-        </div>
+  <!-- copyright text -->
+  <p class="copyright">&copy; 2021 SKKU DScover. All right reserved.</p>
 
-        <div class="row">
-          <div class="social-links">
-            <a href="https://github.com/DScover" title="linkedin"><img src="img/icons/GitHub-Mark-120px-plus.png" alt="github"></a>
-            <a href="https://www.instagram.com/dscover_skku/?hl=ko" title="instagram"><img src="img/icons/instagram.png" alt="instagram"></a>
-          </div>
-        </div>
+  <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="server/mainPage_script.js"></script>
 
-      </div>
-    </section>
-    <!-- Contact Section End -->
+  <script src="/__/firebase/8.6.5/firebase-app.js"></script>
+  <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
+  <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
+  <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
 
-    <!-- copyright text -->
-    <p class="copyright">&copy; 2021 SKKU DScover. All right reserved</p>
-
-    <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="server/mainPage_script.js"></script>
-
-    <script src="/__/firebase/8.6.5/firebase-app.js"></script>
-    <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
-    <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
-    <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
-
-    <script src="/server/mainPage_server.js"></script>
-  </body>
+  <script src="/server/mainPage_server.js"></script>
+  <script src="/server/login_server.js"></script>
+  <script src="/server/signup_server.js"></script>
+</body>
 
 </html>

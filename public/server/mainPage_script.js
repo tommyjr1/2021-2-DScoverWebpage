@@ -1,5 +1,5 @@
-
 $(document).ready(function() {
+
   // nav toggle
   $(".nav-toggle").click(function() {
     $(".header .nav").slideToggle();
@@ -42,32 +42,47 @@ $(document).ready(function() {
   });
 
   var slideIndex = 0;
-showSlides();
+  showSlides();
 
-function showSlides() {
+  function showSlides() {
     var i;
     var slides = document.getElementsByClassName("work-item");
     var dots = document.getElementsByClassName("dot");
     for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";
+      slides[i].style.display = "none";
     }
     slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+    if (slideIndex > slides.length) {
+      slideIndex = 1
     }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 3000); // Change image every 2 seconds
-}
-})
+  }
 
-//toSignUp
-$("#signup").click(()=>{
-  location.href="signupPage.html" 
-})
+  //login Section
+  $('.modal-container').css('visibility', 'hidden');
+  $('.signup-section').css('visibility', 'hidden');
+  $('.login-section').css('visibility', 'hidden');
+  $("#login").click(function() {
+    $('.modal-container').css('visibility', 'visible');
+    $('.login-section').css('visibility', 'visible');
+  })
+  $(".xBtn").click(function() {
+    $('.modal-container').css('visibility', 'hidden');
+    $('.login-section').css('visibility', 'hidden');
+  })
 
-//toLogin
-$("#login").click(()=>{
-  location.href="loginPage.html" 
+  //signup section
+  $("#signup").click(function() {
+    $('.modal-container').css('visibility', 'visible');
+    $('.signup-section').css('visibility', 'visible');
+  })
+  $(".xBtn").click(function() {
+    $('.modal-container').css('visibility', 'hidden');
+    $('.signup-section').css('visibility', 'hidden');
+  })
 })
