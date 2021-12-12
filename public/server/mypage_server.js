@@ -1,24 +1,24 @@
 $(document).ready(function(){
-    // nav toggle
-    $(".nav-toggle").click(function() {
-      $(".header .nav").slideToggle();
-    })
-    $(".header .nav a").click(function() {
-      if ($(window).width() < 768) {
-        $(".header .nav").slideToggle();
-      }
-    })
-  
-    // fixed header
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 100) {
-        $(".header").addClass("fixed");
-      } else {
-        $(".header").removeClass("fixed");
-      }
-    })
+  // nav toggle
+  $(".nav-toggle").click(function() {
+    $(".header .nav").slideToggle();
   })
-  
+  $(".header .nav a").click(function() {
+    if ($(window).width() < 768) {
+      $(".header .nav").slideToggle();
+    }
+  })
+
+  // fixed header
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $(".header").addClass("fixed");
+    } else {
+      $(".header").removeClass("fixed");
+    }
+  })
+})
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
@@ -39,8 +39,21 @@ const storage = firebase.storage()
 function myFeed(data) {
   var listContainer = document.querySelector("#nav-card")
   if (listContainer != null) {
+
     var addFeed = document.createElement('div')
     addFeed.className = 'card'
+
+    var cardheader = document.createElement('div')
+    cardheader.className = 'card-header'
+
+    var deleteBtn = document.createElement('button')
+    deleteBtn.className = 'xBtn'
+
+    var times = document.createElement('i')
+    times.className = 'fa fa-times'
+
+    deleteBtn.appendChild(times)
+    cardheader.appendChild(deleteBtn)
 
     var cardbody = document.createElement('div')
     cardbody.className = 'card-body'
@@ -61,10 +74,11 @@ function myFeed(data) {
     link.className = 'card-link'
     link.href = data['file']
 
-    cardbody.appendChild(title)
+    cardheader.appendChild(title)
     cardbody.appendChild(date)
     cardbody.appendChild(context)
     cardbody.appendChild(link)
+    addFeed.appendChild(cardheader)
     addFeed.appendChild(cardbody)
     listContainer.appendChild(addFeed)
   }
@@ -80,7 +94,7 @@ firebase.auth().onAuthStateChanged((user) => {
         document.getElementById('logout').style.display='inline-block'
         var uid = user.uid;
         var name = user.displayName
-        db.collection('feeds').where('writer','==',name).get().then((results)=>{
+        db.collection('feeds').where('writer','==',name).orderBy('last_update', 'desc').get().then((results)=>{
             results.forEach((docs)=>{
                 myFeed(docs.data())
 
@@ -91,7 +105,8 @@ firebase.auth().onAuthStateChanged((user) => {
                         event.preventDefault()
 
                         title = triggerEl.querySelector(".card-title").innerText
-                        location.href='showPost.html?title='+title
+                        db.collection('feeds').doc(title).delete()
+                        location.reload()
                     })
                 })
             })
@@ -102,11 +117,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
                 document.querySelector('#username').innerText = name
                 document.querySelector('#email').innerText = user.email
-                if(docs.data()['manager']!=true){
-                    document.querySelector('#manager').innerText = false
-                }else{
-                    document.querySelector('#manager').innerText = true
-                }
+                document.querySelector('#manager').innerText = docs.data()['manager']
                 document.querySelector('#password').setAttribute('value',docs.data()['password'])
                 document.querySelector('#studentid').setAttribute('value',docs.data()['studentid'])
                 if(docs.data()['department']){

@@ -225,7 +225,13 @@ body {
   font-family: 'Outfit', sans-serif;
 }
 
-.header .nav #recruit, #board, #manage, #login, #signup, #mypage, #logout{
+.header .nav #recruit, 
+.header .nav #board, 
+.header .nav #manage, 
+.header .nav #login, 
+.header .nav #signup, 
+.header .nav #mypage, 
+.header .nav #logout{
   display: none;
 }
 
@@ -571,8 +577,13 @@ body {
 }
 
 /*board section*/
+section{
+  display: block;
+}
+
 .board-section .container,
-.my-section .container {
+.my-section .container,
+.show-section .container {
   margin-top: 100px;
 }
 
@@ -582,7 +593,7 @@ body {
 
 .board-section #addPost {
   border-radius: 5px;
-  width: 120px;
+  width: 140px;
   height: 40px;
 }
 .board-section #addPost:hover{
@@ -661,6 +672,15 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.card{
+  margin: 20px 10px;
+  width: 18rem;
+  height: 15rem;
+}
+.my-section #nav-card{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 
 /*post section*/
 .post-section {
@@ -698,4 +718,33 @@ body {
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+/* show section */
+.show-section .list-group{
+  background-color:rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 20px 20px;
+}
+.show-section .btn-primary{
+  border: none;
+  font-size: 30px;
+}
+.show-section .list-group #postTitle{
+  font-size: 30px;
+  font-weight: normal;
+}
+.show-section .list-group #postDate,
+.show-section .list-group #postWriter{
+  font-size: 12px;
+  font-weight: normal;
+  color: grey;
+  text-align: right;
+}
+.show-section .list-group #postContect{
+  font-size:15px;
+  font-weight: normal;
+}
+hr{
+  border-color: #7d94c0;
 }

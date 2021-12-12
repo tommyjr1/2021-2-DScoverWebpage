@@ -148,10 +148,10 @@ function makeFeed(data){
     
         listContainer.appendChild(addFeed)
     }
-    }
+}
     
 
-db.collection('feeds').get().then((results)=>{
+db.collection('feeds').orderBy('last_update', 'desc').get().then((results)=>{
     results.forEach(docs => {
         makeFeed(docs.data())
     });
@@ -164,12 +164,17 @@ db.collection('feeds').get().then((results)=>{
             $('.toast').toast('show')
 
             $('#delPostBtn').click(()=>{
-                db.collection('feeds').doc(title).delete()
+                db.collection('feeds').doc(title).delete().then(()=>{
+                    location.href="managerPage.html"
+                })
+        
             })
+    
+
         })
+
     })
 })
-
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -192,14 +197,8 @@ firebase.auth().onAuthStateChanged((user) => {
           // An error happened.
         });
       })
-    
-    
-    
-    
-    
-    
+
     } else {
-      
-    
+      location.href='index.html'
     }
-});
+})

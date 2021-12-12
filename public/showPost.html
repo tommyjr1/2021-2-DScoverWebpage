@@ -4,20 +4,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 </head>
 <body>
-    <h1 id="postTitle"></h1>
-    <p id="postDate"></p>
-    <p id="postWriter"></p>
-    <h2 id="postContext"></h2>
-    <img id='postImg'>
+    <header class="header">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="brand-name">
+              <a href="index.html">DScover</a>
+              <img src="img/icons/cube.png" alt="">
+            </div>
+            <div class="nav-toggle">
+              <span></span>
+            </div>
+            <nav class="nav">
+              <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About us</a></li>
+                <li><a href="index.html#works">Projects</a></li>
+                <li id="recruit"><a href="index.html#contact">Recruit</a></li>
+                <li id='board'><a href="boardPage.html">Board</a></li>
+                <li id="manage"><a href="managerPage.html">Manage</a></li>
+                <button type="button" name="button" id="login">Log in</button>
+                <button type="button" name="button" id="signup">Sign up</button>
+                <button type="button" name="button" id="mypage">Mypage</button>
+                <button type="button" name="button" id="logout">Log out</button>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!-- Header End -->
+      <!-- show section start -->
+      <section class="show-section">
+        <div class="container">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary" type="button" id="back">
+                  <i class="far fa-list-alt"></i>
+                </button>
+              </div>
+            <div class="list-group">
+                <div id="postTitle"></div>
+                <hr>
+                <div id="postDate"></div>
+                <div id="postWriter"></div>
+                <div id="postContext"></div>
+                <div><img id='postImg'></div>
+            </div>
+        </div>
+      </section>
+      <!-- show section end -->
 
-    <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
-    <script src="/__/firebase/8.6.5/firebase-app.js"></script>
+  <script type="text/javascript" src="server/jquery-3.6.0.min.js"></script>
+  <script src="/__/firebase/8.6.5/firebase-app.js"></script>
 	<script src="/__/firebase/8.6.5/firebase-auth.js"></script>
 	<script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
 	<script src="/__/firebase/8.6.5/firebase-storage.js"></script> 
 	
-    <script src="/server/boardPage_server.js"></script>
+  <script src="/server/boardPage_server.js"></script>
 </body>
 </html>
