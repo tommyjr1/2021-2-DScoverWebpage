@@ -85,4 +85,6 @@ $(document).ready(function() {
     $('.modal-container').css('visibility', 'hidden');
     $('.signup-section').css('visibility', 'hidden');
   })
+      // document.getElementById('board').style.display='inline-block';
+        // document.getElementById('board').style.display='inline-block';
 })

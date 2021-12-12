@@ -15,76 +15,84 @@ const db = firebase.firestore();
 const storage = firebase.storage()
 
 firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      var uid = user.uid;
-      document.getElementById('login').style.display = 'none'
-      document.getElementById('signup').style.display = 'none'
-      document.getElementById('mypage').style.visibility = 'visible'
-      document.getElementById('logout').style.visibility = 'visible'
-      $('#mypage').click(()=>{
-        location.href = 'myPage.html'
-      })
-      $('#logout').click(()=>{
-        firebase.auth().signOut().then(() => {
-          // Sign-out successful.
-          location.href='index.html'
+  document.getElementById('board').style.display='inline-block';
+  document.getElementById('manage').style.display='inline-block';
 
-        }).catch((error) => {
-          // An error happened.
-        });
-      })
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var uid = user.uid;
+    document.getElementById('login').style.display = 'none'
+    document.getElementById('signup').style.display = 'none'
+    document.getElementById('mypage').style.visibility = 'visible'
+    document.getElementById('logout').style.visibility = 'visible'
+    $('#mypage').click(() => {
+      location.href = 'myPage.html'
+    })
+    $('#logout').click(() => {
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        location.href = 'index.html'
+
+      }).catch((error) => {
+        // An error happened.
+      });
+    })
 
 
 
 
 
 
-    } else {
-      document.getElementById('mypage').style.display = 'none'
-      document.getElementById('logout').style.display = 'none'
-      document.getElementById('login').style.visibility = 'visible'
-      document.getElementById('signup').style.visibility = 'visible'
-      //login
-      $("#loginbutton").click(function(){
-        var email = $("#loginemail").val()
-        var password = $("#loginpassword").val()
+  } else {
+    document.getElementById('mypage').style.display = 'none'
+    document.getElementById('logout').style.display = 'none'
+    document.getElementById('login').style.visibility = 'visible'
+    document.getElementById('signup').style.visibility = 'visible'
+    //login
+    $("#loginbutton").click(function() {
+      var email = $("#loginemail").val()
+      var password = $("#loginpassword").val()
 
-        firebase.auth().signInWithEmailAndPassword(email, password)
+      firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Signed in
-            var user = userCredential.user;
-            location.href='index.html'
+          // Signed in
+          var user = userCredential.user;
+          location.href = 'index.html'
 
 
         })
         .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            //TODO: Try Again 말하는 알림창
-            console.log(errorMessage)
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          //TODO: Try Again 말하는 알림창
+          console.log(errorMessage)
         });
-      })
+    })
 
-      //signup
-      $("#signbutton").click(function(){
-        var email = $("#email").val()
-        var password = $("#password").val()
-        var username = $("#username").val()
-        var studentid = $("#studentid").val()
+    //signup
+    $("#signbutton").click(function() {
+      var email = $("#email").val()
+      var password = $("#password").val()
+      var username = $("#username").val()
+      var studentid = $("#studentid").val()
 
 
-        firebase.auth().createUserWithEmailAndPassword( email, password)
+      firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          db.collection('users').doc(username).set({email: email, password:password, username :username, studentid: studentid})
+          db.collection('users').doc(username).set({
+            email: email,
+            password: password,
+            username: username,
+            studentid: studentid
+          })
           user.updateProfile({
             displayName: username
-          }).then(()=>{
+          }).then(() => {
             console.log(user)
-            location.href='index.html'
+            location.href = 'index.html'
           })
 
         })
@@ -93,11 +101,11 @@ firebase.auth().onAuthStateChanged((user) => {
           const errorMessage = error.message;
           console.log(errorMessage)
         });
-      })
+    })
 
 
-    }
-  });
+  }
+});
 //
 //
 //   } else {
