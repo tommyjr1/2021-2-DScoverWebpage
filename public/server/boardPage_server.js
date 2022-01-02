@@ -1,3 +1,32 @@
+$(document).ready(function(){
+    // nav toggle
+    $(".nav-toggle").click(function() {
+        $(".header .nav").slideToggle();
+    })
+    $(".header .nav a").click(function() {
+        if ($(window).width() < 768) {
+        $(".header .nav").slideToggle();
+        }
+    })
+    // fixed header
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+        $(".header").addClass("fixed");
+        } else {
+        $(".header").removeClass("fixed");
+        }
+    })
+    //posting Section
+    $('.modal-container').css('display', 'none');
+    $("#addPost").click(function() {
+        $('.modal-container').css('display', 'inline');
+    })
+    $(".xBtn").click(function() {
+        $('.modal-container').css('display', 'none');
+    })
+
+})
+
 const firebaseConfig = {
     apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
     authDomain: "dscover-3d912.firebaseapp.com",
@@ -55,7 +84,7 @@ function makeFeed(data){
     }
 
 
-db.collection('feeds').get().then((results)=>{
+db.collection('feeds').orderBy('last_update', 'desc').get().then((results)=>{
     results.forEach(docs => {
         makeFeed(docs.data())
     });
@@ -88,7 +117,9 @@ if(patId!=null){
             document.getElementById('postDate').innerText = doc.data()['last_update'].toDate().toDateString()
             document.getElementById('postWriter').innerText = doc.data()['writer']
             document.getElementById('postContext').innerText = doc.data()['context']
-            document.getElementById('postImg').url = doc.data()['file']
+            document.getElementById('postImg').setAttribute('src',doc.data()['fileurl'])
+            document.getElementById('postImg').style.height = 500
+
         })
     }).catch((error) => {
         console.log("Error getting documents: ", error);
@@ -101,7 +132,26 @@ firebase.auth().onAuthStateChanged((user) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
 
-        document.getElementById('')
+        document.getElementById('board').style.display='inline-block'
+        document.getElementById('manage').style.display='inline-block'
+        document.getElementById('mypage').style.display='inline-block'
+        document.getElementById('logout').style.display='inline-block'
+        $('#mypage').click(()=>{
+            location.href = 'myPage.html'
+        })
+        $('#logout').click(()=>{
+            firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            location.href='index.html'
+
+            }).catch((error) => {
+            // An error happened.
+            });
+        })
+        $("#back").click(()=>{
+            location.href='boardPage.html'
+        })
+
 
         var uid = user.uid;
         var name = user.displayName;
@@ -129,19 +179,18 @@ firebase.auth().onAuthStateChanged((user) => {
                         upload.snapshot.ref.getDownloadURL().then((url)=>{
                             console.log('업로드된 경로는', url)
 
-                            db.collection('feeds').add({title: title, context:context, file:url, last_update: now, writer:name})
+                            db.collection('feeds').doc(title).set({title: title, context:context, fileurl:url.toString(), last_update: now, writer:name})
                         })
                     })
             }else{
-                db.collection('feeds').doc(title).set({title: title, context:context, last_update: now, writer:name})
+                db.collection('feeds').doc(title).set({title: title, context:context, fileurl:'', last_update: now, writer:name})
             }
 
-            // window.history.back();
+            $('.modal-container').css('display', 'none');
             // window.location.reload();
         })
 
     } else {
-        // User is signed out
-        // ...
+        location.href='index.html'
     }
 });

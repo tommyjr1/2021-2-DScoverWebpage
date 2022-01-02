@@ -148,10 +148,10 @@ function makeFeed(data){
     
         listContainer.appendChild(addFeed)
     }
-    }
+}
     
 
-db.collection('feeds').get().then((results)=>{
+db.collection('feeds').orderBy('last_update', 'desc').get().then((results)=>{
     results.forEach(docs => {
         makeFeed(docs.data())
     });
@@ -164,8 +164,41 @@ db.collection('feeds').get().then((results)=>{
             $('.toast').toast('show')
 
             $('#delPostBtn').click(()=>{
-                db.collection('feeds').doc(title).delete()
+                db.collection('feeds').doc(title).delete().then(()=>{
+                    location.href="managerPage.html"
+                })
+        
             })
+    
+
         })
+
     })
+})
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+      document.getElementById('board').style.display='inline-block'
+      document.getElementById('manage').style.display='inline-block'
+      document.getElementById('mypage').style.display='inline-block'
+      document.getElementById('logout').style.display='inline-block'
+      $('#mypage').click(()=>{
+        location.href = 'myPage.html'
+      })
+      $('#logout').click(()=>{
+        firebase.auth().signOut().then(() => {
+          // Sign-out successful.
+          location.href='index.html';
+    
+        }).catch((error) => {
+          // An error happened.
+        });
+      })
+
+    } else {
+      location.href='index.html'
+    }
 })
