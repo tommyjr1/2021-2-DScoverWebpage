@@ -225,12 +225,12 @@ body {
   font-family: 'Outfit', sans-serif;
 }
 
-.header .nav #recruit, 
-.header .nav #board, 
-.header .nav #manage, 
-.header .nav #login, 
-.header .nav #signup, 
-.header .nav #mypage, 
+.header .nav #recruit,
+.header .nav #board,
+.header .nav #manage,
+.header .nav #login,
+.header .nav #signup,
+.header .nav #mypage,
 .header .nav #logout{
   display: none;
 }
@@ -415,9 +415,8 @@ body {
   transition: background-color 0.6s ease;
 }
 
-.active {
-  /* background-color: #717171; */
-  background-color: none;
+.dots .active {
+  background-color: #717171;
 }
 
 /* contact section */
@@ -596,9 +595,6 @@ section{
   width: 140px;
   height: 40px;
 }
-.board-section #addPost:hover{
-  background: lightgrey;
-}
 
 .board-section .list-group-item {
   position: relative;
@@ -651,10 +647,6 @@ section{
 }
 
 /* mypage section */
-.my-section #nav-home{
-  /* to test nav bar */
-  height: 1500px;
-}
 .my-section .nav-link{
   color: grey;
 }
@@ -708,6 +700,7 @@ section{
   color: white;
   border-radius: 5px;
   box-shadow: none;
+  transition: all 0.3s ease;
 }
 .btn-primary:hover{
   background: none;
@@ -747,4 +740,12 @@ section{
 }
 hr{
   border-color: #7d94c0;
+}
+
+/* manage section */
+.table-striped td{
+  vertical-align: middle;
+}
+.table-striped{
+  margin-top: 1rem;
 }
