@@ -743,9 +743,9 @@ hr{
 }
 
 /* manage section */
-.table-striped td{
+.manage-section .table td{
   vertical-align: middle;
 }
-.table-striped{
+.manage-section .table{
   margin-top: 1rem;
 }
