@@ -72,7 +72,7 @@ function myFeed(data) {
 
     var link = document.createElement('p')
     link.className = 'card-link'
-    link.href = data['file']
+    link.href = data['fileurl']
 
     cardheader.appendChild(title)
     cardbody.appendChild(date)
@@ -92,9 +92,19 @@ firebase.auth().onAuthStateChanged((user) => {
         document.getElementById('manage').style.display='inline-block'
         document.getElementById('mypage').style.display='inline-block'
         document.getElementById('logout').style.display='inline-block'
+        $('#logout').click(()=>{
+            firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            location.href='index.html'
+
+            }).catch((error) => {
+            // An error happened.
+            });
+        })
         var uid = user.uid;
         var name = user.displayName
-        db.collection('feeds').where('writer','==',name).orderBy('last_update', 'desc').get().then((results)=>{
+        console.log('Name is ', name)
+        db.collection('feeds').where('writer','==',name).orderBy('writer').orderBy('last_update', 'desc').get().then((results)=>{
             results.forEach((docs)=>{
                 myFeed(docs.data())
 
