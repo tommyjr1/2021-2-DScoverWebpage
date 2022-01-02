@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged((user) => {
         var uid = user.uid;
         var name = user.displayName
         console.log('Name is ', name)
-        db.collection('feeds').where('writer','==',name).orderBy('writer').orderBy('last_update', 'desc').get().then((results)=>{
+        db.collection('feeds').where('writer','==',name).orderBy('last_update', 'desc').get().then((results)=>{
             results.forEach((docs)=>{
                 myFeed(docs.data())
 
