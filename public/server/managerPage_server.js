@@ -122,6 +122,8 @@ db.collection('users').get().then((results) => {
       })
 
     }
+
+    alert('updated')
   })
 })
 
@@ -182,6 +184,7 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
       $('#delPostBtn').click(() => {
         db.collection('feeds').doc(title).delete().then(() => {
           location.href = "managerPage.html"
+          //posts 활성화 시키기
         })
 
       })

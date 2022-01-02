@@ -187,7 +187,7 @@ firebase.auth().onAuthStateChanged((user) => {
             }
 
             $('.modal-container').css('display', 'none');
-            // window.location.reload();
+            window.location.reload();
         })
 
     } else {
