@@ -177,7 +177,6 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
   triggerTabList.forEach(function(triggerEl) {
     triggerEl.addEventListener('click', function(event) {
       event.preventDefault()
-      this.className += " selected"
       title = triggerEl.querySelector("div h5").innerText
       $('#myToast').toast('show')
 
