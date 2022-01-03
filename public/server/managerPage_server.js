@@ -185,21 +185,29 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
         db.collection('feeds').doc(title).get().then((result)=>{
           if (result.data()['filename']!=''){
             var filename = result.data()['filename']
+            console.log(filename)
             var storageRef = storage.ref()
             var desertRef = storageRef.child('post/'+filename)
             // Delete the file
             desertRef.delete().then(() => {
               // File deleted successfully
+              alert('게시글 삭제 중.')
+             
             }).catch((error) => {
               // Uh-oh, an error occurred!
+              alert('게시글 삭제못함.')
             });
           }
+        }).then(()=>{
+          db.collection('feeds').doc(title).delete().then(() => {
+            alert('게시글 삭제 완료.')
+
+            location.reload()
+            //posts 활성화 시키기
+            console.log(title)
+          })
         })
-        db.collection('feeds').doc(title).delete().then(() => {
-          location.href = "managerPage.html"
-          //posts 활성화 시키기
-          console.log(title)
-        })
+        
 
       })
 
