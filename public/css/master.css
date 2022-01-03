@@ -750,6 +750,24 @@ hr{
 .manage-section .tab-pane{
   margin-top: 1rem;
 }
+.manage-section {
+  position: relative;
+}
+.manage-section .toast-container {
+  clear: both;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.manage-section .border-top{
+  text-align: center;
+}
+.manage-section .border-top .btn{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 /* mypage section */
 .my-section #nav-profile{
