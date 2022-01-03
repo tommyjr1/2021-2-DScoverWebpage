@@ -156,8 +156,30 @@ if (user) {
         var errorCode = error.code;
         var errorMessage = error.message;
         //TODO: Try Again 말하는 알림창
-        console.log(errorMessage)
-    });
+        alert(errorMessage)
+      });
+  })
+  document.querySelector('#loginpassword').addEventListener('keyup', (e)=>{
+    if (e.keyCode === 13) {
+        // code for enter
+        var email = $("#loginemail").val()
+        var password = $("#loginpassword").val()
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            location.reload();
+
+
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            //TODO: Try Again 말하는 알림창
+            alert(errorMessage)
+        });
+      }
   })
 
   //signup
@@ -184,7 +206,7 @@ if (user) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorMessage)
+      alert(errorMessage)
     });
   })
 
