@@ -179,12 +179,26 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
       event.preventDefault()
 
       title = triggerEl.querySelector("div h5").innerText
-      $('.toast').toast('show')
+      $('#myToast').toast('show')
 
       $('#delPostBtn').click(() => {
+        db.collection('feeds').doc(title).get().then((result)=>{
+          if (result.data()['filename']!=''){
+            var filename = result.data()['filename']
+            var storageRef = storage.ref()
+            var desertRef = storageRef.child('post/'+filename)
+            // Delete the file
+            desertRef.delete().then(() => {
+              // File deleted successfully
+            }).catch((error) => {
+              // Uh-oh, an error occurred!
+            });
+          }
+        })
         db.collection('feeds').doc(title).delete().then(() => {
           location.href = "managerPage.html"
           //posts 활성화 시키기
+          console.log(title)
         })
 
       })

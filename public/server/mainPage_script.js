@@ -107,10 +107,16 @@ if (user) {
   // User is signed in, see docs for a list of available properties
   // https://firebase.google.com/docs/reference/js/firebase.User
   var uid = user.uid;
+  var username = user.displayName;
   document.getElementById('board').style.display='inline-block'
-  document.getElementById('manage').style.display='inline-block'
   document.getElementById('mypage').style.display='inline-block'
   document.getElementById('logout').style.display='inline-block'
+  db.collection('users').doc(username).get().then((result)=>{
+    console.log(result.data()['manager'])
+    if(result.data()['manager']!='X'){
+      document.getElementById('manage').style.display='inline-block';
+    }
+  })
   $('#mypage').click(()=>{
     location.href = 'myPage.html'
   })
@@ -166,7 +172,7 @@ if (user) {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      db.collection('users').doc(username).set({email: email, password:password, username :username, studentid: studentid})
+      db.collection('users').doc(username).set({email: email, password:password, username :username, studentid: studentid,manager: 'X' })
       user.updateProfile({
         displayName: username
       }).then(()=>{
