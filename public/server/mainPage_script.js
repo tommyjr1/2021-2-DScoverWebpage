@@ -83,6 +83,8 @@ $(document).ready(function() {
     $('.modal-container').css('display', 'none');
     $('.signup-section').css('display', 'none');
   })
+      // document.getElementById('board').style.display='inline-block';
+        // document.getElementById('board').style.display='inline-block';
 })
 const firebaseConfig = {
   apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",

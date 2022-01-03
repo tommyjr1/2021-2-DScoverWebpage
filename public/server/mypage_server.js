@@ -154,13 +154,14 @@ firebase.auth().onAuthStateChanged((user) => {
                 year:yearv
             })
 
-            console.log('updated')
+            // console.log('updated')
+            alert("updated");
         })
 
-        
 
 
-        
+
+
     } else {
         // User is signed out
         location.href='index.html'

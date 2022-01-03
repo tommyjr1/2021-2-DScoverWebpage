@@ -26,7 +26,7 @@ $(document).ready(function(){
     })
 
 })
-  
+
 const firebaseConfig = {
     apiKey: "AIzaSyAOQi3EpBaza0qVrFTTx-rBNMWlfjTv5to",
     authDomain: "dscover-3d912.firebaseapp.com",
@@ -117,7 +117,7 @@ if(patId!=null){
             document.getElementById('postDate').innerText = doc.data()['last_update'].toDate().toDateString()
             document.getElementById('postWriter').innerText = doc.data()['writer']
             document.getElementById('postContext').innerText = doc.data()['context']
-            document.getElementById('postImg').setAttribute('src',doc.data()['fileurl']) 
+            document.getElementById('postImg').setAttribute('src',doc.data()['fileurl'])
             document.getElementById('postImg').style.height = 500
 
         })
@@ -187,7 +187,7 @@ firebase.auth().onAuthStateChanged((user) => {
             }
 
             $('.modal-container').css('display', 'none');
-            // window.location.reload();
+            window.location.reload();
         })
 
     } else {
