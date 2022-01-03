@@ -670,9 +670,10 @@ section{
   width: 18rem;
   height: 15rem;
 }
-.my-section #nav-card{
+.my-section .tab-content .active[id='nav-card']{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
 
 /*post section*/
@@ -750,7 +751,7 @@ hr{
 .manage-section .tab-pane{
   margin-top: 1rem;
 }
-.manage-section {
+.manage-section #mytab .selected {
   position: relative;
 }
 .manage-section .toast-container {
@@ -776,4 +777,7 @@ hr{
 }
 .my-section #editprofile{
   margin-top: 1rem;
+}
+.my-section #nav-card .card-body{
+  overflow: auto;
 }
