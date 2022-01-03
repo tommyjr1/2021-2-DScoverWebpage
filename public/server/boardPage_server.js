@@ -110,6 +110,8 @@ function getParameter(name) {
 var patId = getParameter('title');
 console.log('title is'+patId)
 if(patId!=null){
+    var downloadBtn = document.getElementById('postDownload')
+
     db.collection('feeds').where('title','==',patId).get().then((results)=>{
         results.forEach((doc)=>{
             console.log('title is'+doc.data()['writer'])
@@ -117,9 +119,18 @@ if(patId!=null){
             document.getElementById('postDate').innerText = doc.data()['last_update'].toDate().toDateString()
             document.getElementById('postWriter').innerText = doc.data()['writer']
             document.getElementById('postContext').innerText = doc.data()['context']
-            document.getElementById('postImg').setAttribute('src',doc.data()['fileurl'])
-            document.getElementById('postImg').style.height = 500
-
+            if((doc.data()['fileurl'])==''){
+                downloadBtn.style.display='None'
+            }
+            else{
+                downloadBtn.addEventListener('click',()=>{
+            
+                    location.href = doc.data()['fileurl']
+    
+                })
+            }
+            
+            
         })
     }).catch((error) => {
         console.log("Error getting documents: ", error);
@@ -169,7 +180,7 @@ firebase.auth().onAuthStateChanged((user) => {
                 var upload = saveLoc.put(file)
                 upload.on('state_changed',
                         //변화 시 동작
-                        null,
+                        alert('업로드 중. 화면을 나가지 마시오.'),
                         //에러시 동작
                         (error)=>{
                         console.error=('reason', error)
@@ -178,16 +189,24 @@ firebase.auth().onAuthStateChanged((user) => {
                         ()=>{
                         upload.snapshot.ref.getDownloadURL().then((url)=>{
                             console.log('업로드된 경로는', url)
+                            db.collection('feeds').doc(title).set({title: title, context:context, filename: file.name, fileurl:url.toString(), last_update: now, writer:name}).then(()=>{
+                                alert('게시물 업로드 완료.')
+                                window.location.reload();
 
-                            db.collection('feeds').doc(title).set({title: title, context:context, fileurl:url.toString(), last_update: now, writer:name})
+                            })
                         })
                     })
             }else{
-                db.collection('feeds').doc(title).set({title: title, context:context, fileurl:'', last_update: now, writer:name})
-            }
+                db.collection('feeds').doc(title).set({title: title, context:context, filename:'', fileurl:'', last_update: now, writer:name}).then(()=>
+                {
+                    alert('게시물 업로드 완료.')
+                    window.location.reload();
 
+                })
+
+            }
             $('.modal-container').css('display', 'none');
-            window.location.reload();
+           
         })
 
     } else {

@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged((user) => {
         var uid = user.uid;
         var name = user.displayName
         console.log('Name is ', name)
-        db.collection('feeds').where('writer','==',name).orderBy('writer').orderBy('last_update', 'desc').get().then((results)=>{
+        db.collection('feeds').where('writer','==',name).orderBy('last_update', 'desc').get().then((results)=>{
             results.forEach((docs)=>{
                 myFeed(docs.data())
 
@@ -115,6 +115,19 @@ firebase.auth().onAuthStateChanged((user) => {
                         event.preventDefault()
 
                         title = triggerEl.querySelector(".card-title").innerText
+                        db.collection('feeds').doc(title).get().then((result)=>{
+                          if (result.data()['filename']!=''){
+                            var filename = result.data()['filename']
+                            var storageRef = storage.ref()
+                            var desertRef = storageRef.child('post/'+filename)
+                            // Delete the file
+                            desertRef.delete().then(() => {
+                              // File deleted successfully
+                            }).catch((error) => {
+                              // Uh-oh, an error occurred!
+                            });
+                          }
+                        })
                         db.collection('feeds').doc(title).delete()
                         location.reload()
                     })
