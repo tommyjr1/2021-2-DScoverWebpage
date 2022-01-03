@@ -177,7 +177,7 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
   triggerTabList.forEach(function(triggerEl) {
     triggerEl.addEventListener('click', function(event) {
       event.preventDefault()
-
+      this.className += " selected"
       title = triggerEl.querySelector("div h5").innerText
       $('#myToast').toast('show')
 
@@ -192,7 +192,7 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
             desertRef.delete().then(() => {
               // File deleted successfully
               alert('게시글 삭제 중.')
-             
+
             }).catch((error) => {
               // Uh-oh, an error occurred!
               alert('게시글 삭제못함.')
@@ -207,7 +207,7 @@ db.collection('feeds').orderBy('last_update', 'desc').get().then((results) => {
             console.log(title)
           })
         })
-        
+
 
       })
 

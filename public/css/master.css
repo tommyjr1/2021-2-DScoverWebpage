@@ -647,7 +647,8 @@ section{
 }
 
 /* mypage section */
-.my-section .nav-link{
+.my-section .nav-link,
+.manage-section .nav-link{
   color: white;
 }
 .nav-tabs .nav-link.active{
@@ -669,9 +670,10 @@ section{
   width: 18rem;
   height: 15rem;
 }
-.my-section #nav-card{
+.my-section .tab-content .active[id='nav-card']{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
 
 /*post section*/
@@ -746,6 +748,36 @@ hr{
 .manage-section .table td{
   vertical-align: middle;
 }
-.manage-section .table{
+.manage-section .tab-pane{
   margin-top: 1rem;
+}
+.manage-section #mytab .selected {
+  position: relative;
+}
+.manage-section .toast-container {
+  clear: both;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.manage-section .border-top{
+  text-align: center;
+}
+.manage-section .border-top .btn{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* mypage section */
+.my-section #nav-profile{
+  margin: 1rem;
+  width: 400px;
+}
+.my-section #editprofile{
+  margin-top: 1rem;
+}
+.my-section #nav-card .card-body{
+  overflow: auto;
 }
