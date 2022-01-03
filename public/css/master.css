@@ -647,7 +647,8 @@ section{
 }
 
 /* mypage section */
-.my-section .nav-link{
+.my-section .nav-link,
+.manage-section .nav-link{
   color: white;
 }
 .nav-tabs .nav-link.active{
@@ -746,6 +747,15 @@ hr{
 .manage-section .table td{
   vertical-align: middle;
 }
-.manage-section .table{
+.manage-section .tab-pane{
+  margin-top: 1rem;
+}
+
+/* mypage section */
+.my-section #nav-profile{
+  margin: 1rem;
+  width: 400px;
+}
+.my-section #editprofile{
   margin-top: 1rem;
 }

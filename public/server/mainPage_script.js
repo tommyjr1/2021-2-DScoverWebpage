@@ -151,6 +151,7 @@ if (user) {
         var errorMessage = error.message;
         //TODO: Try Again 말하는 알림창
         console.log(errorMessage)
+        alert(errorMessage)
     });
   })
 
@@ -179,6 +180,7 @@ if (user) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage)
+      alert(errorMessage)
     });
   })
 
